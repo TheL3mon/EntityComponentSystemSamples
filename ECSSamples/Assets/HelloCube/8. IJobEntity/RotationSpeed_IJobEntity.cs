@@ -4,4 +4,5 @@
 public struct RotationSpeed_IJobEntity : IComponentData
 {
     public float RadiansPerSecond;
+    public float Speed;
 }

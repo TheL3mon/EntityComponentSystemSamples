@@ -15,11 +15,13 @@ public partial struct RotateEntityJob : IJobEntity
                 quaternion.AxisAngle(math.up(), speed.RadiansPerSecond * DeltaTime));
     }
 }
+
 public partial class RotationSpeedSystem_IJobEntity : SystemBase
 {
     // OnUpdate runs on the main thread.
     protected override void OnUpdate()
     {
         new RotateEntityJob {DeltaTime = Time.DeltaTime}.Schedule();
+        new MoveEntityJob {DeltaTime = Time.DeltaTime}.Schedule();
     }
 }
